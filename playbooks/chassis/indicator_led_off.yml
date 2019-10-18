@@ -1,0 +1,16 @@
+---
+- hosts: myhosts
+  connection: local
+  name: Set Indicator LED to Off
+  gather_facts: False
+
+  tasks:
+
+  - name: Turn LED off
+    redfish_command:
+      category: Chassis
+      command: IndicatorLedOff
+      resource_id: 1U
+      baseuri: "{{ baseuri }}"
+      username: "{{ username}}"
+      password: "{{ password }}"

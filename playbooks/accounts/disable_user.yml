@@ -1,0 +1,19 @@
+---
+- hosts: myhosts
+  connection: local
+  name: Disable User
+  gather_facts: False
+
+  vars:
+  - account_username: user1
+
+  tasks:
+
+  - name: Disable user
+    redfish_command:
+      category: Accounts
+      command: DisableUser
+      baseuri: "{{ baseuri }}"
+      username: "{{ username }}"
+      password: "{{ password }}"
+      account_username: "{{ account_username }}"

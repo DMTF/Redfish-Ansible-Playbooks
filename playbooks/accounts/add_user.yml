@@ -1,0 +1,24 @@
+---
+- hosts: myhosts
+  connection: local
+  name: Add User
+  gather_facts: False
+
+  vars:
+  - account_username: user1
+  - account_password: B1g$3cr3t
+  - account_roleid: Operator
+
+  tasks:
+
+  # When adding a user, it must be enabled afterwards
+  - name: Add user
+    redfish_command:
+      category: Accounts
+      command: AddUser
+      baseuri: "{{ baseuri }}"
+      username: "{{ username }}"
+      password: "{{ password }}"
+      account_username: "{{ account_username }}"
+      account_password: "{{ account_password }}"
+      account_roleid: "{{ account_roleid }}"

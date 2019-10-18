@@ -1,0 +1,35 @@
+---
+- hosts: myhosts
+  connection: local
+  name: Set one-time boot device (legacy mode)
+  gather_facts: False
+
+  # Bootdevice options include: None, Pxe, Cd, Floppy, Hdd, BiosSetup,
+  # Usb, Utilities, Diags, UefiShell, and SDCard.
+
+  vars:
+    - system_id: 437XR1138R2
+    - bootdevice: Pxe
+
+  tasks:
+
+  - name: Set one-time boot device to {{ bootdevice }}
+    redfish_command:
+      category: Systems
+      command: SetOneTimeBoot
+      resource_id: "{{ system_id }}"
+      bootdevice: "{{ bootdevice }}"
+      baseuri: "{{ baseuri }}"
+      username: "{{ username }}"
+      password: "{{ password }}"
+    register: onetimeboot
+
+  - name: Reboot system
+    redfish_command:
+      category: Systems
+      command: PowerReboot
+      resource_id: "{{ system_id }}"
+      baseuri: "{{ baseuri }}"
+      username: "{{ username }}"
+      password: "{{ password }}"
+    when: onetimeboot.changed

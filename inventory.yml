@@ -1,0 +1,23 @@
+# Sample inventory file for Redfish Ansible modules
+#
+# For baseuri, if specifying names instead of IP addresses, make sure
+# that name is fully DNS resolvable.
+
+[redfish]
+redfish1  baseuri=192.168.1.10 username=root password=xxxxxxxx
+redfish2  baseuri=192.168.1.11 username=root password=yyyyyyyy
+
+[myhosts:children]
+redfish
+
+[myhosts:vars]
+# Default credentials for OOB controller
+username=root
+password=P@$$word
+
+# Local directory where all results are placed
+rootdir=~/inventory_files
+
+# Shorter name for inventory_hostname
+# Refers to the logical inventory hostname (example: redfish1)
+host="{{inventory_hostname}}"

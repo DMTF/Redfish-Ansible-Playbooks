@@ -1,0 +1,43 @@
+---
+- hosts: myhosts
+  connection: local
+  name: Set BIOS attribute - choose below
+  gather_facts: False
+
+  # Example BIOS attributes (vendor specific)
+  #
+  # Name                  Value
+  # --------------------------------------------------
+  # OsWatchdogTimer       Disabled / Enabled
+  # ProcVirtualization    Disabled / Enabled
+  # MemTest               Disabled / Enabled
+  # SriovGlobalEnable     Disabled / Enabled
+
+  vars:
+  - system_id: 437XR1138R2
+  - attributes:
+      SriovGlobalEnable: Enabled
+      ProcVirtualization: Disabled
+
+  tasks:
+
+  - name: Set BIOS attribute {{ attribute_name }} to {{ attribute_value }}
+    redfish_config:
+      category: Systems
+      command: SetBiosAttributes
+      resource_id: "{{ system_id }}"
+      bios_attributes: "{{ attributes }}"
+      baseuri: "{{ baseuri }}"
+      username: "{{ username }}"
+      password: "{{ password }}"
+    register: bios_attribute
+
+  - name: Reboot system to apply new BIOS settings
+    redfish_command:
+      category: Systems
+      command: PowerReboot
+      resource_id: "{{ system_id }}"
+      baseuri: "{{ baseuri }}"
+      username: "{{ username }}"
+      password: "{{ password }}"
+    when: bios_attribute.changed

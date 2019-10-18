@@ -1,0 +1,16 @@
+---
+- hosts: myhosts
+  connection: local
+  name: Clear System Logs
+  gather_facts: False
+
+  tasks:
+
+  - name: Clear Logs
+    redfish_command:
+      category: Manager
+      command: ClearLogs
+      resource_id: BMC
+      baseuri: "{{ baseuri }}"
+      username: "{{ username }}"
+      password: "{{ password }}"

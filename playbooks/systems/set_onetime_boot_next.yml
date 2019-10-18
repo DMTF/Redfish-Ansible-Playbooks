@@ -1,0 +1,34 @@
+---
+- hosts: myhosts
+  connection: local
+  name: Set one-time boot device (UEFI boot next mode)
+  gather_facts: False
+
+  vars:
+    - system_id: 437XR1138R2
+    - bootdevice: UefiBootNext
+    - boot_next: Boot0001
+
+  tasks:
+
+  - name: Set one-time boot device to {{ bootdevice }}
+    redfish_command:
+      category: Systems
+      command: SetOneTimeBoot
+      resource_id: "{{ system_id }}"
+      bootdevice: "{{ bootdevice }}"
+      boot_next: "{{ boot_next }}"
+      baseuri: "{{ baseuri }}"
+      username: "{{ username }}"
+      password: "{{ password }}"
+    register: onetimeboot
+
+  - name: Reboot system
+    redfish_command:
+      category: Systems
+      command: PowerReboot
+      resource_id: "{{ system_id }}"
+      baseuri: "{{ baseuri }}"
+      username: "{{ username }}"
+      password: "{{ password }}"
+    when: onetimeboot.changed
