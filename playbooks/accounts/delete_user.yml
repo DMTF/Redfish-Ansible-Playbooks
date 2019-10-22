@@ -4,9 +4,6 @@
   name: Delete User
   gather_facts: False
 
-  vars:
-  - account_username: user1
-
   tasks:
 
   - name: Delete user
@@ -16,4 +13,4 @@
       baseuri: "{{ baseuri }}"
       username: "{{ username }}"
       password: "{{ password }}"
-      account_username: "{{ account_username }}"
+      id: "{{ id }}"

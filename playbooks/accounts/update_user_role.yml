@@ -4,10 +4,6 @@
   name: Update user role
   gather_facts: False
 
-  vars:
-  - account_username: user1
-  - account_roleid: ReadOnly
-
   tasks:
 
   - name: Update user role
@@ -17,5 +13,5 @@
       baseuri: "{{ baseuri }}"
       username: "{{ username }}"
       password: "{{ password }}"
-      account_username: "{{ account_username }}"
-      account_roleid: "{{ account_roleid }}"
+      id: "{{ id }}"
+      roleid: "{{ roleid }}"
