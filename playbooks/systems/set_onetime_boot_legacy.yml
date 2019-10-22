@@ -8,7 +8,6 @@
   # Usb, Utilities, Diags, UefiShell, and SDCard.
 
   vars:
-    - system_id: 437XR1138R2
     - bootdevice: Pxe
 
   tasks:
@@ -17,7 +16,6 @@
     redfish_command:
       category: Systems
       command: SetOneTimeBoot
-      resource_id: "{{ system_id }}"
       bootdevice: "{{ bootdevice }}"
       baseuri: "{{ baseuri }}"
       username: "{{ username }}"
@@ -28,7 +26,6 @@
     redfish_command:
       category: Systems
       command: PowerReboot
-      resource_id: "{{ system_id }}"
       baseuri: "{{ baseuri }}"
       username: "{{ username }}"
       password: "{{ password }}"
