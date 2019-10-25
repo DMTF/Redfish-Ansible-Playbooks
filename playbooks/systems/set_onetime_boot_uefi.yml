@@ -5,7 +5,6 @@
   gather_facts: False
 
   vars:
-    - system_id: 437XR1138R2
     - bootdevice: UefiTarget
     - uefi_target: "/0x31/0x33/0x01/0x01"
 
@@ -15,7 +14,6 @@
     redfish_command:
       category: Systems
       command: SetOneTimeBoot
-      resource_id: "{{ system_id }}"
       bootdevice: "{{ bootdevice }}"
       uefi_target: "{{ uefi_target }}"
       baseuri: "{{ baseuri }}"
@@ -27,7 +25,6 @@
     redfish_command:
       category: Systems
       command: PowerReboot
-      resource_id: "{{ system_id }}"
       baseuri: "{{ baseuri }}"
       username: "{{ username }}"
       password: "{{ password }}"

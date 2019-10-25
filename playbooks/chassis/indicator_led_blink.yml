@@ -10,7 +10,6 @@
     redfish_command:
       category: Chassis
       command: IndicatorLedBlink
-      resource_id: 1U
       baseuri: "{{ baseuri }}"
       username: "{{ username}}"
       password: "{{ password }}"

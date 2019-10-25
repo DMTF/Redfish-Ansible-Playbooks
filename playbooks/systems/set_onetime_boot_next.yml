@@ -5,7 +5,6 @@
   gather_facts: False
 
   vars:
-    - system_id: 437XR1138R2
     - bootdevice: UefiBootNext
     - boot_next: Boot0001
 
@@ -15,7 +14,6 @@
     redfish_command:
       category: Systems
       command: SetOneTimeBoot
-      resource_id: "{{ system_id }}"
       bootdevice: "{{ bootdevice }}"
       boot_next: "{{ boot_next }}"
       baseuri: "{{ baseuri }}"
@@ -27,7 +25,6 @@
     redfish_command:
       category: Systems
       command: PowerReboot
-      resource_id: "{{ system_id }}"
       baseuri: "{{ baseuri }}"
       username: "{{ username }}"
       password: "{{ password }}"

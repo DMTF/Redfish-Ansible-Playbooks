@@ -10,7 +10,6 @@
     redfish_command:
       category: Systems
       command: PowerGracefulRestart
-      resource_id: 437XR1138R2
       baseuri: "{{ baseuri }}"
       username: "{{ username }}"
       password: "{{ password }}"
