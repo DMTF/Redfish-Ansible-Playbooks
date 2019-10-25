@@ -12,6 +12,10 @@ To use these playbooks, you first need to install Ansible (version 2.7 or later;
 
 [Ansible Installation Guide](https://docs.ansible.com/ansible/latest/installation_guide/intro_installation.html)
 
+## Release process
+
+The playbooks in the `master` branch of this repository are designed to work with the [latest stable release of Ansible](https://docs.ansible.com/ansible/latest/reference_appendices/release_and_maintenance.html). The playbooks in the `devel` branch can have new and modified playbooks that reflect new features in the [Ansible devel branch](https://github.com/ansible/ansible/tree/devel).
+
 ## Running the playbooks
 
 1. [Clone](https://help.github.com/en/articles/cloning-a-repository) this repository
