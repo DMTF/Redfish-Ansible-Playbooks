@@ -1,0 +1,15 @@
+---
+- hosts: myhosts
+  connection: local
+  name: Manage System Power - Force restart
+  gather_facts: False
+
+  tasks:
+
+  - name: Restart system power forcefully
+    redfish_command:
+      category: Systems
+      command: PowerForceRestart
+      baseuri: "{{ baseuri }}"
+      username: "{{ username }}"
+      password: "{{ password }}"
