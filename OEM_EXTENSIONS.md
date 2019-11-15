@@ -8,7 +8,7 @@ This document describes an approach for extending the standard Redfish Ansible m
 
 ## The Approach
 
-With the current Redfish Ansible support, there are three main modules (`redfish_command.py`, `redfish_config.py` and `redfish_facts.py`). These three modules are relatively thin modules that establish the commands and their parameters and then call out to a utility module, `redfish_utils.py`, that has the bulk of the logic to interact with the Redfish services.
+With the current Redfish Ansible support, there are three main modules (`redfish_command.py`, `redfish_config.py` and `redfish_info.py`). These three modules are relatively thin modules that establish the commands and their parameters and then call out to a utility module, `redfish_utils.py`, that has the bulk of the logic to interact with the Redfish services.
 
 The `redfish_utils.py` module implements a `RedfishUtils` class that has many methods to perform the various Redfish operations. With this architecture, a new vendor module that needs to add a specific Oem feature can create a new class (e.g. `ContosoRedfishUtils`) that extends the existing `RedfishUtils`. New method(s) can be added to that class (or existing methods overridden) while still being able to leverage all the existing standard methods in the parent class. Then a new vendor module (e.g. `contoso_redfish_command.py`) can be written that is basically a sparse version of `redfish_command.py` that only needs to handle the new or changed vendor commands.
 

@@ -40,9 +40,9 @@ The three Redfish modules are summarized here:
 
 	The `redfish_config` module performs OOB controller operations like setting the BIOS configuration.
 
-3. [redfish_facts](https://docs.ansible.com/ansible/latest/modules/redfish_facts_module.html) (source: [redfish_facts.py](https://github.com/ansible/ansible/blob/devel/lib/ansible/modules/remote_management/redfish/redfish_facts.py))
+3. [redfish_info](https://docs.ansible.com/ansible/devel/modules/redfish_info_module.html) (source: [redfish_info.py](https://github.com/ansible/ansible/blob/devel/lib/ansible/modules/remote_management/redfish/redfish_info.py))
 
-	The `redfish_facts` module retrieves information about the OOB controller like Systems inventory and Accounts inventory.
+	The `redfish_info` module retrieves information about the OOB controller like Systems inventory and Accounts inventory.
 
 All three of the above modules use this utility module: [redfish_utils.py](https://github.com/ansible/ansible/blob/devel/lib/ansible/module_utils/redfish_utils.py)
 
