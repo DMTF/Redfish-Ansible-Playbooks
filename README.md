@@ -8,7 +8,7 @@ This repository contains a set of example Ansible playbooks for invoking the Red
 
 ## Prerequisites
 
-To use these playbooks, you first need to install Ansible (version 2.7 or later; preferably version 2.8 or later). The Redfish Ansible modules are included in the Ansible distribution. Instructions for installing Ansible can be found here:
+To use these playbooks, you first need to install the latest stable release of Ansible (currently version 2.9). The Redfish Ansible modules are included in the Ansible distribution. Instructions for installing Ansible can be found here:
 
 [Ansible Installation Guide](https://docs.ansible.com/ansible/latest/installation_guide/intro_installation.html)
 
