@@ -1,0 +1,17 @@
+---
+- hosts: myhosts
+  connection: local
+  name: Set default boot order
+  gather_facts: False
+
+  tasks:
+
+  - name: Set boot order to default
+    redfish_config:
+      category: Systems
+      command: SetDefaultBootOrder
+      resource_id: "1"
+      baseuri: "{{ baseuri }}"
+      username: "{{ username }}"
+      password: "{{ password }}"
+    register: result

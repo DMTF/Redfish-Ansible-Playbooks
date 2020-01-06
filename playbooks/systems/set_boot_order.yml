@@ -1,0 +1,26 @@
+---
+- hosts: myhosts
+  connection: local
+  name: Set boot order
+  gather_facts: False
+
+  vars:
+  - boot_order:
+    - "Boot0004"
+    - "Boot0003"
+    - "Boot0002"
+    - "Boot0001"
+    - "Boot0000"
+
+  tasks:
+
+  - name: Set boot order to {{ boot_order }}
+    redfish_config:
+      category: Systems
+      command: SetBootOrder
+      resource_id: "1"
+      boot_order: "{{ boot_order }}"
+      baseuri: "{{ baseuri }}"
+      username: "{{ username }}"
+      password: "{{ password }}"
+    register: result
