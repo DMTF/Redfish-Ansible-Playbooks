@@ -10,6 +10,7 @@
     redfish_command:
       category: Manager
       command: GracefulRestart
+      resource_id: BMC
       baseuri: "{{ baseuri }}"
       username: "{{ username }}"
       password: "{{ password }}"

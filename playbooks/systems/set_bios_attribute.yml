@@ -14,6 +14,7 @@
   # SriovGlobalEnable     Disabled / Enabled
 
   vars:
+  - system_id: 437XR1138R2
   - attributes:
       SriovGlobalEnable: Enabled
       ProcVirtualization: Disabled
@@ -24,6 +25,7 @@
     redfish_config:
       category: Systems
       command: SetBiosAttributes
+      resource_id: "{{ system_id }}"
       bios_attributes: "{{ attributes }}"
       baseuri: "{{ baseuri }}"
       username: "{{ username }}"
@@ -34,6 +36,7 @@
     redfish_command:
       category: Systems
       command: PowerReboot
+      resource_id: "{{ system_id }}"
       baseuri: "{{ baseuri }}"
       username: "{{ username }}"
       password: "{{ password }}"
