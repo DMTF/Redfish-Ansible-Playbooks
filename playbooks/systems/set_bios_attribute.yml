@@ -14,8 +14,9 @@
   # SriovGlobalEnable     Disabled / Enabled
 
   vars:
-  - attribute_name: SriovGlobalEnable
-  - attribute_value: Enabled
+  - attributes:
+      SriovGlobalEnable: Enabled
+      ProcVirtualization: Disabled
 
   tasks:
 
@@ -23,8 +24,7 @@
     redfish_config:
       category: Systems
       command: SetBiosAttributes
-      bios_attribute_name: "{{ attribute_name }}"
-      bios_attribute_value: "{{ attribute_value }}"
+      bios_attributes: "{{ attributes }}"
       baseuri: "{{ baseuri }}"
       username: "{{ username }}"
       password: "{{ password }}"
