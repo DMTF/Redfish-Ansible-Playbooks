@@ -1,0 +1,21 @@
+---
+- hosts: myhosts
+  connection: local
+  name: Update user name
+  gather_facts: False
+
+  vars:
+  - account_username: alice
+  - update_username: carol
+
+  tasks:
+
+  - name: Update user name from {{ account_username }} to {{ update_username }}
+    redfish_command:
+      category: Accounts
+      command: UpdateUserName
+      baseuri: "{{ baseuri }}"
+      username: "{{ username }}"
+      password: "{{ password }}"
+      account_username: "{{ account_username }}"
+      update_username: "{{ update_username }}"

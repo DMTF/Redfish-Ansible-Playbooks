@@ -1,0 +1,21 @@
+---
+- hosts: myhosts
+  connection: local
+  name: Update Account Service Properties
+  gather_facts: False
+
+  vars:
+  - account_properties:
+      AccountLockoutThreshold: 5
+      AccountLockoutDuration: 600
+
+  tasks:
+
+  - name: Update Account Service Properties
+    redfish_command:
+      category: Accounts
+      command: UpdateAccountServiceProperties
+      baseuri: "{{ baseuri }}"
+      username: "{{ username }}"
+      password: "{{ password }}"
+      account_properties: "{{ account_properties }}"
