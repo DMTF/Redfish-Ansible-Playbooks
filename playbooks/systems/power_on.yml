@@ -10,6 +10,7 @@
     redfish_command:
       category: Systems
       command: PowerOn
+      resource_id: 437XR1138R2
       baseuri: "{{ baseuri }}"
       username: "{{ username }}"
       password: "{{ password }}"

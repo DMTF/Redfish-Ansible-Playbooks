@@ -1,0 +1,24 @@
+---
+- hosts: myhosts
+  connection: local
+  name: Set Manager Network Protocols
+  gather_facts: False
+
+  tasks:
+
+  - name: Set Manager Network Protocols
+    redfish_config:
+      category: Manager
+      command: SetNetworkProtocols
+      network_protocols:
+        SNMP:
+          ProtocolEnabled: True
+          port: 161
+        HTTP:
+          ProtocolEnabled: False
+          port: 8080
+      resource_id: BMC
+      baseuri: "{{ baseuri }}"
+      username: "{{ username }}"
+      password: "{{ password }}"
+    register: result

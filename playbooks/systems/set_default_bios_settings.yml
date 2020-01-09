@@ -4,12 +4,16 @@
   name: Set default BIOS settings
   gather_facts: False
 
+  vars:
+  - system_id: 437XR1138R2
+
   tasks:
 
   - name: Set BIOS default settings
     redfish_config:
       category: Systems
       command: SetBiosDefaultSettings
+      resource_id: "{{ system_id }}"
       baseuri: "{{ baseuri }}"
       username: "{{ username }}"
       password: "{{ password }}"
@@ -19,6 +23,7 @@
     redfish_command:
       category: Systems
       command: PowerReboot
+      resource_id: "{{ system_id }}"
       baseuri: "{{ baseuri }}"
       username: "{{ username }}"
       password: "{{ password }}"

@@ -1,16 +1,17 @@
 ---
 - hosts: myhosts
   connection: local
-  name: Manage System Power - Graceful shutdown
+  name: Set default boot order
   gather_facts: False
 
   tasks:
 
-  - name: Shutdown system power gracefully
-    redfish_command:
+  - name: Set boot order to default
+    redfish_config:
       category: Systems
-      command: PowerGracefulShutdown
-      resource_id: 437XR1138R2
+      command: SetDefaultBootOrder
+      resource_id: "1"
       baseuri: "{{ baseuri }}"
       username: "{{ username }}"
       password: "{{ password }}"
+    register: result

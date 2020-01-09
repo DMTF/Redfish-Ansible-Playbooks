@@ -4,6 +4,9 @@
   name: Disable User
   gather_facts: False
 
+  vars:
+  - account_username: user1
+
   tasks:
 
   - name: Disable user
@@ -13,4 +16,4 @@
       baseuri: "{{ baseuri }}"
       username: "{{ username }}"
       password: "{{ password }}"
-      id: "{{ id }}"
+      account_username: "{{ account_username }}"
