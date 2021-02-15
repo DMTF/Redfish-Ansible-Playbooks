@@ -32,7 +32,7 @@ The Redfish Ansible modules are maintained in the [stable 2.9 Ansible GitHub rep
 
 The three Redfish modules are summarized here:
 
-1. [redish_command](https://docs.ansible.com/ansible/2.9/modules/redfish_command_module.html) (source: [redish_command.py](https://github.com/ansible/ansible/blob/stable-2.9/lib/ansible/modules/remote_management/redfish/redfish_command.py))
+1. [redfish_command](https://docs.ansible.com/ansible/2.9/modules/redfish_command_module.html) (source: [redish_command.py](https://github.com/ansible/ansible/blob/stable-2.9/lib/ansible/modules/remote_management/redfish/redfish_command.py))
 
 	The `redfish_command` module performs Out-Of-Band (OOB) controller operations like log management, adding/deleting/modifying users, and power operations (e.g. on, off, reboot, etc.).
 
