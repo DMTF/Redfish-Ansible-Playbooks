@@ -14,7 +14,7 @@ To use these playbooks, you first need to install the latest stable 2.9 release 
 
 ## Release process
 
-The playbooks in the `2.9` branch of this repository are designed to work with the [stable 2.9 release of Ansible](https://docs.ansible.com/ansible/2.9/reference_appendices/release_and_maintenance.html). The playbooks in the `master` branch of this repository are designed to work with the [latest stable release of Ansible](https://docs.ansible.com/ansible/latest/reference_appendices/release_and_maintenance.html).
+The playbooks in the `2.9` branch of this repository are designed to work with the [stable 2.9 release of Ansible](https://docs.ansible.com/ansible/2.9/reference_appendices/release_and_maintenance.html). The playbooks in the `main` branch of this repository are designed to work with the [latest stable release of Ansible](https://docs.ansible.com/ansible/latest/reference_appendices/release_and_maintenance.html).
 
 ## Running the playbooks
 
